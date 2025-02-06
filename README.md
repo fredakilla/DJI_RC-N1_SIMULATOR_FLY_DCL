@@ -1,6 +1,6 @@
 DJI RC-N1
 ===============
-Live support: https://t.me/DJI_RC_N1_SIMULATOR_FLY_DC
+Discussion thread: coming soon...
 
 Donate:
 
