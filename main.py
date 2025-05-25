@@ -175,13 +175,13 @@ def threaded_function():
         #print("working ...")
         gamepad.left_joystick(int(st["lh"]), int(st["lv"]))
         gamepad.right_joystick(int(st["rh"]), int(st["rv"]))
-        if camera > 32000:
-            gamepad.press_button(vg.XUSB_BUTTON.XUSB_GAMEPAD_Y) #restart race
-        if camera < -32000:
-            gamepad.press_button(vg.XUSB_BUTTON.XUSB_GAMEPAD_B) #recover drone
+        if camera > 0:
+            gamepad.press_button(vg.XUSB_BUTTON.XUSB_GAMEPAD_X)
+        if camera < 0:
+            gamepad.press_button(vg.XUSB_BUTTON.XUSB_GAMEPAD_A)
         if camera == 0:
-            gamepad.release_button(vg.XUSB_BUTTON.XUSB_GAMEPAD_Y)
-            gamepad.release_button(vg.XUSB_BUTTON.XUSB_GAMEPAD_B)
+            gamepad.release_button(vg.XUSB_BUTTON.XUSB_GAMEPAD_X)
+            gamepad.release_button(vg.XUSB_BUTTON.XUSB_GAMEPAD_A)
         gamepad.update()
 
 thread = Thread(target = threaded_function, args = ())
@@ -235,6 +235,7 @@ try:
 
             camera = parseInput(data[25:27], 'cam')
 
+            #print(camera)
             #print(data)
             #with uinput.Device(events) as device:
             #time.sleep(1)
